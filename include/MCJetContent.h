@@ -3,7 +3,14 @@
 
 #include "marlin/Processor.h"
 #include "lcio.h"
+#include <EVENT/MCParticle.h>
+#include "IMPL/LCCollectionVec.h"
+#include <IMPL/ReconstructedParticleImpl.h>
 #include <string>
+
+using namespace lcio ;
+using namespace marlin ;
+
 class MCJetContent : public Processor
 {
 
@@ -20,13 +27,21 @@ class MCJetContent : public Processor
 		virtual void				init();
 		virtual void				processRunHeader() ;
 		virtual void				processEvent( EVENT::LCEvent *pLCEvent ) ;
+		virtual void				addMCPstoMCPartonShower( LCCollectionVec *m_col_outputPfo , EVENT::MCParticle *mcp ) ;
 		virtual void				check( LCEvent * evt ) ;
 		virtual void				end() ;
-    
+		void					Clear();
+
 	private:
 
-		std::string				jetcollection{};
-		std::string				MCPcollection{} ;
+		std::string				m_MCPartonShower{};
+		std::string				m_MCPcollection{} ;
+		int					m_nRun;
+		int					m_nEvt;
+		int					m_nRunSum;
+		int					m_nEvtSum;
+		bool					m_includeNu;
+		int					n_PartonShower;
 };
 
-#endif  
+#endif
