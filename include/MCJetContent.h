@@ -27,21 +27,26 @@ class MCJetContent : public Processor
 		virtual void				init();
 		virtual void				processRunHeader() ;
 		virtual void				processEvent( EVENT::LCEvent *pLCEvent ) ;
-		virtual void				addMCPstoMCPartonShower( LCCollectionVec *m_col_outputPfo , EVENT::MCParticle *mcp ) ;
+		virtual void				finIsolatedLeptonFSR( EVENT::LCEvent *pLCEvent , EVENT::MCParticle *mcp, int leptonPDG , std::vector<int> &isolatedLeptonIndex , std::vector<int> &isolatedPhotonIndex ) ;
 		virtual void				check( LCEvent * evt ) ;
 		virtual void				end() ;
 		void					Clear();
 
 	private:
 
-		std::string				m_MCPartonShower{};
+		std::string				m_MCJetContent_wInvisibles{};
+		std::string				m_MCJetContent_woInvisibles{};
+		std::string				m_MCISR{};
+		std::string				m_MCFSR{};
 		std::string				m_MCPcollection{} ;
+		std::string				m_MCIsolatedLeptons{};
 		int					m_nRun;
 		int					m_nEvt;
 		int					m_nRunSum;
 		int					m_nEvtSum;
-		bool					m_includeNu;
+		float					m_minTheta;
 		int					n_PartonShower;
+		bool					m_includeOverlay{};
 };
 
 #endif
