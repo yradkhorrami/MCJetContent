@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="us-ascii" ?>
+<!-- ?xml-stylesheet type="text/xsl" href="http://ilcsoft.desy.de/marlin/marlin.xsl"? -->
+<!-- ?xml-stylesheet type="text/xsl" href="marlin.xsl"? -->
+<!-- Loading shared library : /gpfs/fs01/ilc/tianjp/analysis/PostDBD/IsolatedLeptonTagging_svn/lib/libISOLepTagging.so.0.1.0 (libISOLepTagging.so)-->
+<!-- Loading shared library : /gpfs/fs01/ilc/soft/ilcsoft/x86_64_gcc481/v01-17-07/MarlinDD4hep/v00-01/lib/libMarlinDD4hep.so.0.1.0 (libMarlinDD4hep.so)-->
+<!-- Loading shared library : /gpfs/fs01/ilc/tianjp/soft/HLRec/MarlinReco/lib/libMarlinReco.so.1.11.0 (libMarlinReco.so)-->
+<!-- Loading shared library : /gpfs/fs01/ilc/soft/ilcsoft/x86_64_gcc481/v01-17-07/PandoraAnalysis/v01-00-01/lib/libPandoraAnalysis.so.01.00.01 (libPandoraAnalysis.so)-->
+<!-- Loading shared library : /gpfs/fs01/ilc/soft/ilcsoft/x86_64_gcc481/v01-17-07/MarlinPandora/v02-00-00/lib/libMarlinPandora.so.02.00.00 (libMarlinPandora.so)-->
+<!-- Loading shared library : /gpfs/fs01/ilc/soft/ilcsoft/x86_64_gcc481/v01-17-07/LCFIVertex/v00-07/lib/libLCFIVertex.so.0.6.2 (libLCFIVertex.so)-->
+<!-- Loading shared library : /gpfs/fs01/ilc/soft/ilcsoft/x86_64_gcc481/v01-17-07/CEDViewer/v01-09/lib/libCEDViewer.so.1.9.0 (libCEDViewer.so)-->
+<!-- Loading shared library : /gpfs/fs01/ilc/soft/ilcsoft/x86_64_gcc481/v01-17-07/Overlay/v00-14/lib/libOverlay.so.0.14.0 (libOverlay.so)-->
+<!-- Loading shared library : /gpfs/fs01/ilc/soft/ilcsoft/x86_64_gcc481/v01-17-07/FastJetClustering/v00-02/lib/libFastJetClustering.so.0.2.0 (libFastJetClustering.so)-->
+<!-- Loading shared library : /gpfs/fs01/ilc/soft/ilcsoft/x86_64_gcc481/v01-17-07/MarlinFastJet/v00-02/lib/libMarlinFastJet.so.0.2.0 (libMarlinFastJet.so)-->
+<!-- Loading shared library : /gpfs/fs01/ilc/soft/ilcsoft/x86_64_gcc481/v01-17-07/LCTuple/v01-04/lib/libLCTuple.so.1.4.0 (libLCTuple.so)-->
+<!-- Loading shared library : /gpfs/fs01/ilc/soft/ilcsoft/x86_64_gcc481/v01-17-07/MarlinKinfit/v00-01-05/lib/libMarlinKinfit.so.0.1.5 (libMarlinKinfit.so)-->
+<!-- Loading shared library : /gpfs/fs01/ilc/soft/ilcsoft/x86_64_gcc481/v01-17-07/MarlinTrkProcessors/v02-00/lib/libMarlinTrkProcessors.so.2.0.0 (libMarlinTrkProcessors.so)-->
+<!-- Loading shared library : /gpfs/fs01/ilc/soft/ilcsoft/x86_64_gcc481/v01-17-07/ILDPerformance/v00-01/lib/libILDPerformance.so.0.1.0 (libILDPerformance.so)-->
+<!-- Loading shared library : /gpfs/fs01/ilc/soft/ilcsoft/x86_64_gcc481/v01-17-07/Clupatra/v00-11/lib/libClupatra.so.0.10.0 (libClupatra.so)-->
+<!-- Loading shared library : /gpfs/fs01/ilc/soft/ilcsoft/x86_64_gcc481/v01-17-07/Physsim/v00-02/lib/libPhyssim.so.0.2.0 (libPhyssim.so)-->
+<!-- Loading shared library : /gpfs/fs01/ilc/soft/ilcsoft/x86_64_gcc481/v01-17-07/FCalClusterer/v00-01/lib/libFCalClusterer.so (libFCalClusterer.so)-->
+<!-- Loading shared library : /gpfs/fs01/ilc/soft/ilcsoft/x86_64_gcc481/v01-17-07/LCFIPlus/v00-05-03/lib/libLCFIPlus.so.0.5.3 (libLCFIPlus.so)-->
+<!-- Loading shared library : /gpfs/fs01/ilc/soft/ilcsoft/x86_64_gcc481/v01-17-07/ForwardTracking/v01-08/lib/libForwardTracking.so.1.8.0 (libForwardTracking.so)-->
+<!-- Loading shared library : /gpfs/fs01/ilc/soft/ilcsoft/x86_64_gcc481/v01-17-07/MarlinTPC/v01-00/lib/libMarlinTPC.so.1.0.0 (libMarlinTPC.so)-->
+<!-- Loading shared library : /gpfs/fs01/ilc/soft/ilcsoft/x86_64_gcc481/v01-17-07/Garlic/v3.0.3/lib/libGarlic.so.3.0.3 (libGarlic.so)-->
+<!--##########################################
+    #                                        #
+    #     Example steering file for marlin   #
+    #                                        #
+    ##########################################-->
+<marlin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ilcsoft.desy.de/marlin/marlin.xsd">
+    <constants>
+        <constant name="lcgeo_DIR" value="/cvmfs/ilc.desy.de/sw/x86_64_gcc82_centos7/v02-02-02/lcgeo/v00-16-06" />
+        <constant name="DetectorModel" value="ILD_l5_o1_v02" />
+        <constant name="CompactFile" value="${lcgeo_DIR}/ILD/compact/${DetectorModel}/${DetectorModel}.xml" />
+    </constants>
+    <execute>
+	<processor name="MyMCJetContent" condition="" />
+        <processor name="MyMCTruthJetProcessor_wNu" condition="" />
+        <processor name="MyMCTruthJetProcessor_woNu" condition="" />
+    </execute>
+    <global>
+        <parameter name="LCIOInputFiles">test.slcio</parameter>
+        <!-- limit the number of processed records (run+evt): -->
+        <parameter name="MaxRecordNumber" value="0" />
+        <parameter name="SkipNEvents" value="0" />
+        <parameter name="SupressCheck" value="false" />
+        <parameter name="GearXMLFile">/cvmfs/ilc.desy.de/sw/ILDConfig/v02-02-02/StandardConfig/production/Gear/gear_ILD_l5_v02.xml</parameter>
+        <parameter name="Verbosity" options="DEBUG0-4,MESSAGE0-4,WARNING0-4,ERROR0-4,SILENT">DEBUG</parameter>
+        <parameter name="RandomSeed" value="1234567890" />
+        <parameter name="OutputSteeringFile" value="" />
+        <!-- optionally limit the collections that are read from the input file: -->
+        <!--parameter name="LCIOReadCollectionNames">MCParticle PandoraPFOs</parameter-->
+    </global>
+
+    <processor name="MyMCJetContent" type="MCJetContent">
+        <!--Name of the Input MCParticle Collection-->
+        <parameter name="MCParticleCollection" type="string" lcioInType="MCParticle">MCParticlesSkimmed</parameter>
+        <!--Name of output MCJetContent with Invisibles (neutrinos + undetectable particles escaping from beam pipe)-->
+        <parameter name="MCJetContent_wInvisibles" type="string" lcioOutType="ReconstructedParticle">MCJetContent_wInvisibles</parameter>
+        <!--Name of output MCJetContent without Invisibles (neutrinos + undetectable particles escaping from beam pipe)-->
+        <parameter name="MCJetContent_woInvisibles" type="string" lcioOutType="ReconstructedParticle">MCJetContent_woInvisibles</parameter>
+        <!--Name of output MCISR (MC initial state radiation) collection-->
+        <parameter name="MCISR" type="string" lcioOutType="ReconstructedParticle">MCISR</parameter>
+        <!--Name of output MCFSR (MC final state radiation) collection-->
+        <parameter name="MCFSR" type="string" lcioOutType="ReconstructedParticle">MCFSR</parameter>
+        <!--Whether include gamma-gamma -> Hadron overlay or not-->
+        <parameter name="includeOverlay" type="bool">false</parameter>
+        <!--Name of output MCIsolatedLepton collection-->
+        <parameter name="MCIsolatedLeptons" type="string" lcioOutType="ReconstructedParticle">ISOLeptonsTruth</parameter>
+        <!-- minimum theta for considering particles detectable in detector, default minTheta = 0.02 (20 mrad) -->
+        <parameter name="m_minTheta" type="float">0.02</parameter>
+        <!--verbosity level of this processor ("DEBUG0-4,MESSAGE0-4,WARNING0-4,ERROR0-4,SILENT")-->
+        <parameter name="Verbosity" type="string">WARNING</parameter>
+    </processor>
+
+    <processor name="MyMCTruthJetProcessor_wNu" type="FastJetProcessor">
+        <!--Using the FastJet library to identify jets-->
+        <!--verbosity level of this processor ("DEBUG0-4,MESSAGE0-4,WARNING0-4,ERROR0-4,SILENT")-->
+        <parameter name="Verbosity" type="string">MESSAGE</parameter>
+        <!--Selects the algorithm and its parameters. E.g. 'kt_algorithm 0.7' or 'ee_kt_algorithm'. For a full list of supported algorithms, see the logfile after execution.-->
+        <parameter name="algorithm" type="StringVec">ee_kt_algorithm</parameter>
+        <!--One of 'Inclusive <minPt>',_Nu 'InclusiveIterativeNJets <nrJets> <minE>', 'ExclusiveNJets <nrJets>', 'ExclusiveYCut <yCut>'. Note: not all modes are available for all algorithms.-->
+        <parameter name="clusteringMode" type="StringVec">ExclusiveNJets 2</parameter>
+        <!--The identified jets-->
+        <parameter name="jetOut" type="string" lcioOutType="ReconstructedParticle">MCTruthJets_wNu</parameter>
+        <!--a list of all reconstructed particles we are searching for jets in.-->
+        <parameter name="recParticleIn" type="string" lcioInType="ReconstructedParticle">MCJetContent_wInvisibles</parameter>
+        <!--a list of all reconstructed particles we are storing for jets in.-->
+        <parameter name="recParticleOut" type="string" lcioInType="ReconstructedParticle">MCTruthJetsPFOs_wNu</parameter>
+        <!--The recombination scheme used when merging 2 particles. Usually there is no need to use anything else than 4-Vector addition: E_scheme-->
+        <parameter name="recombinationScheme" type="string">E_scheme</parameter>
+        <!--Store the list of particles that were clustered into jets in the recParticleOut collection-->
+        <parameter name="storeParticlesInJets" type="bool">true</parameter>
+        <parameter name="findNrJets">2</parameter>
+        <parameter name="findNrJetsCollectionPrefix">Jets_</parameter>
+    </processor>
+
+    <processor name="MyMCTruthJetProcessor_woNu" type="FastJetProcessor">
+        <!--Using the FastJet library to identify jets-->
+        <!--verbosity level of this processor ("DEBUG0-4,MESSAGE0-4,WARNING0-4,ERROR0-4,SILENT")-->
+        <parameter name="Verbosity" type="string">MESSAGE</parameter>
+        <!--Selects the algorithm and its parameters. E.g. 'kt_algorithm 0.7' or 'ee_kt_algorithm'. For a full list of supported algorithms, see the logfile after execution.-->
+        <parameter name="algorithm" type="StringVec">ee_kt_algorithm</parameter>
+        <!--One of 'Inclusive <minPt>',_Nu 'InclusiveIterativeNJets <nrJets> <minE>', 'ExclusiveNJets <nrJets>', 'ExclusiveYCut <yCut>'. Note: not all modes are available for all algorithms.-->
+        <parameter name="clusteringMode" type="StringVec">ExclusiveNJets 2</parameter>
+        <!--The identified jets-->
+        <parameter name="jetOut" type="string" lcioOutType="ReconstructedParticle">MCTruthJets_woNu</parameter>
+        <!--a list of all reconstructed particles we are searching for jets in.-->
+        <parameter name="recParticleIn" type="string" lcioInType="ReconstructedParticle">MCJetContent_woInvisibles</parameter>
+        <!--a list of all reconstructed particles we are storing for jets in.-->
+        <parameter name="recParticleOut" type="string" lcioInType="ReconstructedParticle">MCTruthJetsPFOs_woNu</parameter>
+        <!--The recombination scheme used when merging 2 particles. Usually there is no need to use anything else than 4-Vector addition: E_scheme-->
+        <parameter name="recombinationScheme" type="string">E_scheme</parameter>
+        <!--Store the list of particles that were clustered into jets in the recParticleOut collection-->
+        <parameter name="storeParticlesInJets" type="bool">true</parameter>
+        <parameter name="findNrJets">2</parameter>
+        <parameter name="findNrJetsCollectionPrefix">Jets_</parameter>
+    </processor>
+
+</marlin>
